@@ -128,6 +128,9 @@ id2label        = { label.id      : label for label in labels           }
 trainId2label   = { label.trainId : label for label in reversed(labels) }
 # KITTI-360 ID to cityscapes ID
 kittiId2label   = { label.kittiId : label for label in labels           }
+id2name         = {label.id       : label.name for label in labels}
+kittiId2name   = { label.kittiId : label.name for label in labels           }
+
 # category to list of label objects
 category2labels = {}
 for label in labels:
@@ -180,21 +183,21 @@ if __name__ == "__main__":
     print("    " + ('-' * 98))
     for label in labels:
         # print("    {:>21} | {:>3} | {:>7} | {:>14} | {:>10} | {:>12} | {:>12}".format( label.name, label.id, label.trainId, label.category, label.categoryId, label.hasInstances, label.ignoreInEval ))
-        print(" \"{:}\"".format(label.name))
+        print("{:}".format(label.name))
     print("")
 
-    print("Example usages:")
-
-    # Map from name to label
-    name = 'car'
-    id   = name2label[name].id
-    print("ID of label '{name}': {id}".format( name=name, id=id ))
-
-    # Map from ID to label
-    category = id2label[id].category
-    print("Category of label with ID '{id}': {category}".format( id=id, category=category ))
-
-    # Map from trainID to label
-    trainId = 0
-    name = trainId2label[trainId].name
-    print("Name of label with trainID '{id}': {name}".format( id=trainId, name=name ))
+    # print("Example usages:")
+    #
+    # # Map from name to label
+    # name = 'car'
+    # id   = name2label[name].id
+    # print("ID of label '{name}': {id}".format( name=name, id=id ))
+    #
+    # # Map from ID to label
+    # category = id2label[id].category
+    # print("Category of label with ID '{id}': {category}".format( id=id, category=category ))
+    #
+    # # Map from trainID to label
+    # trainId = 0
+    # name = trainId2label[trainId].name
+    # print("Name of label with trainID '{id}': {name}".format( id=trainId, name=name ))
